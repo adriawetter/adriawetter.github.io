@@ -3,10 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="1800">
 <title>Adria Segelwetter — Funtana</title>
-<meta http-equiv="refresh" content="0; url=segelwetter.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sea:#06243C;--deep:#091E2E;--water:#0B3654;--chart:#0D4470;
+  --line:#1A5C8A;--gold:#C8872A;--gold2:#E89A3A;--sail:#F2EDE8;
+  --muted:#7EA8C4;--dim:#3A6B8A;--go:#2D9C5E;--warn:#E87B1A;--stop:#C0392B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--deep);color:var(--sail);font-family:'DM Sans',system-ui,sans-serif;
+  font-weight:300;min-height:100vh;padding:20px 16px 40px;
+  background-image:linear-gradient(rgba(26,92,138,.08) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(26,92,138,.08) 1px,transparent 1px);
+  background-size:40px 40px}
+.page{max-width:640px;margin:0 auto}
+.masthead{display:flex;align-items:flex-start;justify-content:space-between;
+  padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.masthead h1{font-family:'DM Serif Display',serif;font-size:1.75rem;font-weight:400;
+  letter-spacing:-.01em;line-height:1.1}
+.masthead h1 span{color:var(--gold)}
+.masthead .sub{margin-top:4px;font-size:.75rem;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--muted);font-weight:400}
+.masthead-right .ts{font-family:'JetBrains Mono',monospace;font-size:.7rem;
+  color:var(--muted);line-height:1.8;text-align:right}
+.update-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;
+  background:rgba(11,54,84,.6);border:1px solid var(--line);border-radius:8px;
+  margin-bottom:16px;font-size:.8rem}
+.update-bar .dot{width:7px;height:7px;border-radius:50%;background:var(--go);
+  box-shadow:0 0 8px var(--go);flex-shrink:0;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.update-bar .label{color:var(--muted);flex:1}
+.update-bar .next-t{color:var(--gold);font-weight:500}
+.update-bar .cd{font-family:'JetBrains Mono',monospace;font-size:.85rem;
+  font-weight:600;color:var(--sail);letter-spacing:.05em}
+.status-hero{display:grid;grid-template-columns:auto 1fr auto;align-items:center;
+  gap:16px;padding:18px 20px;border-radius:12px;margin-bottom:16px;
+  position:relative;overflow:hidden}
+.status-hero.go{background:linear-gradient(135deg,#062918,#0a3d20);border:1px solid #1a6b3a}
+.status-hero.warn{background:linear-gradient(135deg,#2a1800,#3d2200);border:1px solid #6b3a0a}
+.status-hero.stop{background:linear-gradient(135deg,#280600,#3d0d00);border:1px solid #6b1a0a}
+.status-icon{font-size:2.2rem}
+.verdict{font-family:'DM Serif Display',serif;font-size:1.3rem;font-weight:400}
+.verdict.go{color:#5ddb8e}.verdict.warn{color:#f0a854}.verdict.stop{color:#f07054}
+.bft-sub{font-size:.8rem;color:var(--muted);margin-top:2px}
+.status-pct{text-align:right;font-family:'JetBrains Mono',monospace}
+.pct-num{font-size:1.6rem;font-weight:600}
+.pct-num.go{color:var(--go)}.pct-num.warn{color:var(--warn)}.pct-num.stop{color:var(--stop)}
+.pct-label{font-size:.65rem;color:var(--muted);letter-spacing:.08em}
+.instruments{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.instr{background:rgba(11,54,84,.45);border:1px solid var(--line);border-radius:10px;padding:14px}
+.instr-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--muted);margin-bottom:6px;font-weight:500}
+.instr-val{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:600;
+  color:var(--sail);line-height:1}
+.instr-unit{font-size:.7rem;color:var(--dim);font-family:'DM Sans',sans-serif;font-weight:400}
+.instr-sub{font-size:.75rem;color:var(--muted);margin-top:4px}
+.alert-box{border-left:3px solid var(--warn);background:rgba(232,123,26,.08);
+  border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:16px;font-size:.85rem}
+.alert-title{color:var(--gold2);font-weight:500;margin-bottom:2px;
+  font-size:.75rem;text-transform:uppercase;letter-spacing:.08em}
+.section-title{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--muted);font-weight:500;margin-bottom:10px;
+  display:flex;align-items:center;gap:8px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--line)}
+.ki-box{background:rgba(11,54,84,.3);border:1px solid var(--line);
+  border-left:3px solid var(--gold);border-radius:0 10px 10px 0;
+  padding:16px;margin-bottom:16px}
+.ki-text{font-family:'DM Serif Display',serif;font-size:.95rem;line-height:1.7;
+  font-weight:400;color:#C8D8E8;font-style:italic}
+footer{border-top:1px solid var(--line);padding-top:16px;text-align:center;
+  font-size:.7rem;color:var(--dim);line-height:1.8}
+footer a{color:var(--muted);text-decoration:none}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:1rem;
+  color:var(--muted);margin-bottom:4px}
+</style>
 </head>
 <body>
-<p>Weiterleitung zu <a href="segelwetter.html">Adria Segelwetter</a>...</p>
+<div class="page">
+  <div class="masthead">
+    <div>
+      <h1>Adria<br><span>Segelwetter</span></h1>
+      <div class="sub">Funtana · Istrien · Nordadria</div>
+    </div>
+    <div class="masthead-right">
+      <div class="ts">45°10'N 13°37'E<br>25. Jun 2026<br>Akt. 23:15 Uhr</div>
+    </div>
+  </div>
+
+  <div class="update-bar">
+    <div class="dot"></div>
+    <span class="label">Nächstes Update</span>
+    <span class="next-t" id="nextUpdateTime">—</span>
+    <span class="cd" id="countdown">--:--:--</span>
+  </div>
+
+  <div class="status-hero go">
+    <div class="status-icon">⛵</div>
+    <div>
+      <div class="verdict go">GUT · Bft 2</div>
+      <div class="bft-sub">—-Wind · See 0.0m</div>
+    </div>
+    <div class="status-pct">
+      <div class="pct-num go">80</div>
+      <div class="pct-label">% SICHER</div>
+    </div>
+  </div>
+
+  <div class="instruments">
+    <div class="instr">
+      <div class="instr-label">💨 Wind</div>
+      <div class="instr-val">0.0 <span class="instr-unit">kn</span></div>
+      <div class="instr-sub">— · Böen 0.0 kn</div>
+    </div>
+    <div class="instr">
+      <div class="instr-label">🌊 Seegang</div>
+      <div class="instr-val">0.0 <span class="instr-unit">m</span></div>
+      <div class="instr-sub">Periode 0s</div>
+    </div>
+    <div class="instr">
+      <div class="instr-label">🧭 Luftdruck</div>
+      <div class="instr-val">0 <span class="instr-unit">hPa</span></div>
+      <div class="instr-sub" style="color:var(--muted)">▲ 0.0 hPa/3h</div>
+    </div>
+    <div class="instr">
+      <div class="instr-label">🌡 Temperatur</div>
+      <div class="instr-val">0.0 <span class="instr-unit">°C</span></div>
+      <div class="instr-sub">Wasser: 0.0°C</div>
+    </div>
+  </div>
+
+  
+
+  <div class="section-title">KI-Analyse</div>
+  <div class="ki-box">
+    <div class="ki-text">Guten Abend, Segler! Keine KI-Analyse verfügbar.</div>
+  </div>
+
+  <footer>
+    <div class="footer-logo">⛵ Adria Segelwetter</div>
+    Daten: ECMWF · GFS · ICON-EU · Open-Meteo Marine<br>
+    Kein Ersatz für offizielle Warnungen —
+    <a href="https://meteoalarm.org">Meteoalarm</a> ·
+    <a href="https://hhi.hr">HHI NAVTEX</a> ·
+    <a href="https://www.meteo.hr">DHMZ</a><br>
+    Letzte Aktualisierung: 25. Jun 2026 · 23:15 Uhr<br>
+    <a href="impressum.html">Impressum</a> ·
+    <a href="datenschutz.html">Datenschutz</a>
+  </footer>
+</div>
+
+<script>
+const U=[{h:7,m:35,l:'07:35 Uhr'},{h:12,m:0,l:'12:00 Uhr'},{h:16,m:0,l:'16:00 Uhr'}];
+function nu(){
+  const n=new Date(),c=n.getHours()*60+n.getMinutes();
+  for(const t of U){if(t.h*60+t.m>c){const d=new Date(n);d.setHours(t.h,t.m,0,0);return{d,l:t.l};}}
+  const d=new Date(n);d.setDate(d.getDate()+1);d.setHours(7,35,0,0);
+  return{d,l:'07:35 Uhr (morgen)'};
+}
+function p(n){return String(n).padStart(2,'0');}
+function tick(){
+  const{d,l}=nu(),diff=d-new Date(),s=Math.max(0,Math.floor(diff/1000));
+  document.getElementById('nextUpdateTime').textContent=l;
+  document.getElementById('countdown').textContent=
+    diff>0?p(Math.floor(s/3600))+':'+p(Math.floor(s%3600/60))+':'+p(s%60):'🔄';
+}
+tick();setInterval(tick,1000);
+</script>
 </body>
 </html>
