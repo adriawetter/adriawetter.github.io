@@ -1,176 +1,130 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="de"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta http-equiv="refresh" content="1800">
 <title>Adria Segelwetter — Funtana</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --sea:#06243C;--deep:#091E2E;--water:#0B3654;--chart:#0D4470;
-  --line:#1A5C8A;--gold:#C8872A;--gold2:#E89A3A;--sail:#F2EDE8;
-  --muted:#7EA8C4;--dim:#3A6B8A;--go:#2D9C5E;--warn:#E87B1A;--stop:#C0392B;
-}
+:root{--deep:#091E2E;--water:#0B3654;--line:#1A5C8A;--gold:#C8872A;--gold2:#E89A3A;--sail:#F2EDE8;--muted:#7EA8C4;--dim:#3A6B8A;--go:#2D9C5E;--warn:#E87B1A;--stop:#C0392B}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--deep);color:var(--sail);font-family:'DM Sans',system-ui,sans-serif;
-  font-weight:300;min-height:100vh;padding:20px 16px 40px;
-  background-image:linear-gradient(rgba(26,92,138,.08) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(26,92,138,.08) 1px,transparent 1px);
-  background-size:40px 40px}
+body{background:var(--deep);color:var(--sail);font-family:'DM Sans',system-ui,sans-serif;font-weight:300;min-height:100vh;padding:20px 16px 40px;background-image:linear-gradient(rgba(26,92,138,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(26,92,138,.08) 1px,transparent 1px);background-size:40px 40px}
 .page{max-width:640px;margin:0 auto}
-.masthead{display:flex;align-items:flex-start;justify-content:space-between;
-  padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:20px}
-.masthead h1{font-family:'DM Serif Display',serif;font-size:1.75rem;font-weight:400;
-  letter-spacing:-.01em;line-height:1.1}
+.masthead{display:flex;align-items:flex-start;justify-content:space-between;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.masthead h1{font-family:'DM Serif Display',serif;font-size:1.75rem;font-weight:400;line-height:1.1}
 .masthead h1 span{color:var(--gold)}
-.masthead .sub{margin-top:4px;font-size:.75rem;text-transform:uppercase;
-  letter-spacing:.12em;color:var(--muted);font-weight:400}
-.masthead-right .ts{font-family:'JetBrains Mono',monospace;font-size:.7rem;
-  color:var(--muted);line-height:1.8;text-align:right}
-.update-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;
-  background:rgba(11,54,84,.6);border:1px solid var(--line);border-radius:8px;
-  margin-bottom:16px;font-size:.8rem}
-.update-bar .dot{width:7px;height:7px;border-radius:50%;background:var(--go);
-  box-shadow:0 0 8px var(--go);flex-shrink:0;animation:pulse 2s ease-in-out infinite}
+.sub{margin-top:4px;font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.ts{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted);line-height:1.8;text-align:right}
+.update-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(11,54,84,.6);border:1px solid var(--line);border-radius:8px;margin-bottom:16px;font-size:.8rem}
+.dot-live{width:7px;height:7px;border-radius:50%;background:var(--go);box-shadow:0 0 8px var(--go);flex-shrink:0;animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.update-bar .label{color:var(--muted);flex:1}
-.update-bar .next-t{color:var(--gold);font-weight:500}
-.update-bar .cd{font-family:'JetBrains Mono',monospace;font-size:.85rem;
-  font-weight:600;color:var(--sail);letter-spacing:.05em}
-.status-hero{display:grid;grid-template-columns:auto 1fr auto;align-items:center;
-  gap:16px;padding:18px 20px;border-radius:12px;margin-bottom:16px;
-  position:relative;overflow:hidden}
-.status-hero.go{background:linear-gradient(135deg,#062918,#0a3d20);border:1px solid #1a6b3a}
-.status-hero.warn{background:linear-gradient(135deg,#2a1800,#3d2200);border:1px solid #6b3a0a}
-.status-hero.stop{background:linear-gradient(135deg,#280600,#3d0d00);border:1px solid #6b1a0a}
-.status-icon{font-size:2.2rem}
-.verdict{font-family:'DM Serif Display',serif;font-size:1.3rem;font-weight:400}
-.verdict.go{color:#5ddb8e}.verdict.warn{color:#f0a854}.verdict.stop{color:#f07054}
+.label{color:var(--muted);flex:1}.next-t{color:var(--gold);font-weight:500}
+.cd{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:600;letter-spacing:.05em}
+.status-hero{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:18px 20px;border-radius:12px;margin-bottom:16px}
+.go{background:linear-gradient(135deg,#062918,#0a3d20);border:1px solid #1a6b3a}
+.warn{background:linear-gradient(135deg,#2a1800,#3d2200);border:1px solid #6b3a0a}
+.stop{background:linear-gradient(135deg,#280600,#3d0d00);border:1px solid #6b1a0a}
+.s-icon{font-size:2.2rem}
+.verdict{font-family:'DM Serif Display',serif;font-size:1.3rem}
+.verdict-go{color:#5ddb8e}.verdict-warn{color:#f0a854}.verdict-stop{color:#f07054}
 .bft-sub{font-size:.8rem;color:var(--muted);margin-top:2px}
-.status-pct{text-align:right;font-family:'JetBrains Mono',monospace}
+.pct{text-align:right;font-family:'JetBrains Mono',monospace}
 .pct-num{font-size:1.6rem;font-weight:600}
-.pct-num.go{color:var(--go)}.pct-num.warn{color:var(--warn)}.pct-num.stop{color:var(--stop)}
-.pct-label{font-size:.65rem;color:var(--muted);letter-spacing:.08em}
+.pct-go{color:var(--go)}.pct-warn{color:var(--warn)}.pct-stop{color:var(--stop)}
+.pct-lbl{font-size:.65rem;color:var(--muted);letter-spacing:.08em}
 .instruments{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
 .instr{background:rgba(11,54,84,.45);border:1px solid var(--line);border-radius:10px;padding:14px}
-.instr-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;
-  color:var(--muted);margin-bottom:6px;font-weight:500}
-.instr-val{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:600;
-  color:var(--sail);line-height:1}
-.instr-unit{font-size:.7rem;color:var(--dim);font-family:'DM Sans',sans-serif;font-weight:400}
-.instr-sub{font-size:.75rem;color:var(--muted);margin-top:4px}
-.alert-box{border-left:3px solid var(--warn);background:rgba(232,123,26,.08);
-  border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:16px;font-size:.85rem}
-.alert-title{color:var(--gold2);font-weight:500;margin-bottom:2px;
-  font-size:.75rem;text-transform:uppercase;letter-spacing:.08em}
-.section-title{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;
-  color:var(--muted);font-weight:500;margin-bottom:10px;
-  display:flex;align-items:center;gap:8px}
-.section-title::after{content:'';flex:1;height:1px;background:var(--line)}
-.ki-box{background:rgba(11,54,84,.3);border:1px solid var(--line);
-  border-left:3px solid var(--gold);border-radius:0 10px 10px 0;
-  padding:16px;margin-bottom:16px}
-.ki-text{font-family:'DM Serif Display',serif;font-size:.95rem;line-height:1.7;
-  font-weight:400;color:#C8D8E8;font-style:italic}
-footer{border-top:1px solid var(--line);padding-top:16px;text-align:center;
-  font-size:.7rem;color:var(--dim);line-height:1.8}
+.il{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:6px;font-weight:500}
+.iv{font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:600;line-height:1}
+.iu{font-size:.7rem;color:var(--dim);font-family:'DM Sans',sans-serif}
+.is{font-size:.75rem;color:var(--muted);margin-top:4px}
+.models-box{background:rgba(11,54,84,.3);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:16px}
+.ml{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px;font-weight:500}
+.mr{display:flex;gap:8px}
+.model-chip{flex:1;background:rgba(26,92,138,.3);border:1px solid var(--line);border-radius:6px;padding:8px;text-align:center}
+.mn{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin-bottom:3px}
+.mv{font-family:'JetBrains Mono',monospace;font-size:.8rem;font-weight:600;color:var(--gold2)}
+.sec{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:500;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sec::after{content:'';flex:1;height:1px;background:var(--line)}
+.fc-scroll{overflow-x:auto;margin-bottom:16px;scrollbar-width:none}
+.fc-scroll::-webkit-scrollbar{display:none}
+.fc-tape{display:flex;gap:6px;min-width:max-content;padding-bottom:4px}
+.fc-col{width:72px;background:rgba(11,54,84,.45);border:1px solid var(--line);border-radius:8px;padding:10px 8px;text-align:center;flex-shrink:0}
+.fc-now{border-color:var(--gold);background:rgba(200,135,42,.1)}
+.fc-time{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--muted);margin-bottom:6px}
+.fc-now .fc-time{color:var(--gold)}
+.fc-kn{font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:600;line-height:1}
+.fc-unit{font-size:.55rem;color:var(--dim)}
+.fc-dir{font-size:.7rem;color:var(--muted);margin:4px 0}
+.fc-wave{font-size:.65rem;color:var(--dim)}
+.fc-bar{margin:6px auto 0;width:40px}
+.fc-bar-track{height:3px;background:var(--water);border-radius:2px;overflow:hidden}
+.fc-bar-fill{height:100%;border-radius:2px;background:var(--go)}
+.bft3-fill{background:var(--warn)}.bft4-fill{background:var(--stop)}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:16px}
+.wd{background:rgba(11,54,84,.3);border:1px solid var(--line);border-radius:8px;padding:8px 4px;text-align:center}
+.wd-today{border-color:var(--gold)}
+.wd-day{font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+.wd-amp{font-size:1.1rem;margin-bottom:4px}
+.wd-kn{font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:600}
+.wd-dir{font-size:.55rem;color:var(--dim)}
+.wd-rain{font-size:.55rem;color:#60a5fa}
+.reviere{margin-bottom:16px}
+.rev-row{display:flex;align-items:center;padding:9px 0;border-bottom:1px solid rgba(26,92,138,.4);font-size:.85rem}
+.rev-row:last-child{border-bottom:none}
+.rev-dot{width:7px;height:7px;border-radius:50%;margin-right:10px;flex-shrink:0}
+.rev-go{background:var(--go);box-shadow:0 0 6px var(--go)}
+.rev-warn{background:var(--warn)}.rev-stop{background:var(--stop)}
+.rev-name{flex:1}.rev-val{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted)}
+.ki-box{background:rgba(11,54,84,.3);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:16px;margin-bottom:16px}
+.ki-text{font-family:'DM Serif Display',serif;font-size:.95rem;line-height:1.7;color:#C8D8E8;font-style:italic}
+footer{border-top:1px solid var(--line);padding-top:16px;text-align:center;font-size:.7rem;color:var(--dim);line-height:1.8}
 footer a{color:var(--muted);text-decoration:none}
-.footer-logo{font-family:'DM Serif Display',serif;font-size:1rem;
-  color:var(--muted);margin-bottom:4px}
-</style>
-</head>
-<body>
-<div class="page">
+.footer-logo{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--muted);margin-bottom:4px}
+</style></head>
+<body><div class="page">
   <div class="masthead">
-    <div>
-      <h1>Adria<br><span>Segelwetter</span></h1>
-      <div class="sub">Funtana · Istrien · Nordadria</div>
-    </div>
-    <div class="masthead-right">
-      <div class="ts">45°10'N 13°37'E<br>26. Jun 2026<br>Akt. 07:24 Uhr</div>
-    </div>
+    <div><h1>Adria<br><span>Segelwetter</span></h1><div class="sub">Funtana · Istrien · Nordadria</div></div>
+    <div><div class="ts">45°10'N 13°37'E<br>26. Jun 2026<br>Akt. 07:31 Uhr</div></div>
   </div>
-
   <div class="update-bar">
-    <div class="dot"></div>
-    <span class="label">Nächstes Update</span>
-    <span class="next-t" id="nextUpdateTime">—</span>
-    <span class="cd" id="countdown">--:--:--</span>
+    <div class="dot-live"></div><span class="label">Nächstes Update</span>
+    <span class="next-t" id="nut">—</span><span class="cd" id="cd">--:--:--</span>
   </div>
-
   <div class="status-hero go">
-    <div class="status-icon">⛵</div>
-    <div>
-      <div class="verdict go">🟢 GUT</div>
-      <div class="bft-sub">ONO-Wind · See 0.0m</div>
-    </div>
-    <div class="status-pct">
-      <div class="pct-num go">93</div>
-      <div class="pct-label">% SICHER</div>
-    </div>
+    <div class="s-icon">⛵</div>
+    <div><div class="verdict verdict-go">🟢 GUT</div><div class="bft-sub">ONO-Wind · See 0.0m</div></div>
+    <div class="pct"><div class="pct-num pct-go">93</div><div class="pct-lbl">% SICHER</div></div>
   </div>
-
   <div class="instruments">
-    <div class="instr">
-      <div class="instr-label">💨 Wind</div>
-      <div class="instr-val">4.3 <span class="instr-unit">kn</span></div>
-      <div class="instr-sub">ONO · Böen 7.1 kn</div>
-    </div>
-    <div class="instr">
-      <div class="instr-label">🌊 Seegang</div>
-      <div class="instr-val">0.0 <span class="instr-unit">m</span></div>
-      <div class="instr-sub">Periode 2s</div>
-    </div>
-    <div class="instr">
-      <div class="instr-label">🧭 Luftdruck</div>
-      <div class="instr-val">1015 <span class="instr-unit">hPa</span></div>
-      <div class="instr-sub" style="color:var(--muted)">▲ 0.1 hPa/3h</div>
-    </div>
-    <div class="instr">
-      <div class="instr-label">🌡 Temperatur</div>
-      <div class="instr-val">0.0 <span class="instr-unit">°C</span></div>
-      <div class="instr-sub">Wasser: 0.0°C</div>
-    </div>
+    <div class="instr"><div class="il">💨 Wind</div><div class="iv">4.3 <span class="iu">kn</span></div><div class="is">ONO · Böen 7.1 kn</div></div>
+    <div class="instr"><div class="il">🌊 Seegang</div><div class="iv">0.0 <span class="iu">m</span></div><div class="is">Periode 2s</div></div>
+    <div class="instr"><div class="il">🧭 Luftdruck</div><div class="iv">1015 <span class="iu">hPa</span></div><div class="is" style="color:var(--muted)">▲ 0.1 hPa/3h</div></div>
+    <div class="instr"><div class="il">📍 Phänomen</div><div class="iv" style="font-size:1rem">NORMAL</div><div class="is">Wasser: —°C</div></div>
   </div>
-
-  
-
-  <div class="section-title">KI-Analyse</div>
-  <div class="ki-box">
-    <div class="ki-text">Guten Morgen, Segler! Höhenrücken. Stabile antizyklonale Lage. 700hPa 3197m → Kein Bora-Risiko.</div>
-  </div>
-
-  <footer>
-    <div class="footer-logo">⛵ Adria Segelwetter</div>
+  <div class="models-box"><div class="ml">Modellvergleich</div><div class="mr"><div class="model-chip"><div class="mn">ECMWF</div><div class="mv">4.4kn ONO</div></div><div class="model-chip"><div class="mn">GFS</div><div class="mv">5.0kn ONO</div></div><div class="model-chip"><div class="mn">ICON-EU</div><div class="mv">3.6kn ONO</div></div></div></div>
+  <div class="sec">Prognose 24 Stunden</div>
+  <div class="fc-scroll"><div class="fc-tape"><div class="fc-col fc-now"><div class="fc-time">JETZT</div><div class="fc-kn">4</div><div class="fc-unit">kn</div><div class="fc-dir">ONO</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:14%"></div></div></div></div><div class="fc-col"><div class="fc-time">09:00</div><div class="fc-kn">3</div><div class="fc-unit">kn</div><div class="fc-dir">NO</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:10%"></div></div></div></div><div class="fc-col"><div class="fc-time">11:00</div><div class="fc-kn">3</div><div class="fc-unit">kn</div><div class="fc-dir">SSW</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:10%"></div></div></div></div><div class="fc-col"><div class="fc-time">13:00</div><div class="fc-kn">7</div><div class="fc-unit">kn</div><div class="fc-dir">SW</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:22%"></div></div></div></div><div class="fc-col"><div class="fc-time">15:00</div><div class="fc-kn">6</div><div class="fc-unit">kn</div><div class="fc-dir">WSW</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:20%"></div></div></div></div><div class="fc-col"><div class="fc-time">17:00</div><div class="fc-kn">7</div><div class="fc-unit">kn</div><div class="fc-dir">WSW</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:22%"></div></div></div></div><div class="fc-col"><div class="fc-time">19:00</div><div class="fc-kn">4</div><div class="fc-unit">kn</div><div class="fc-dir">WSW</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:13%"></div></div></div></div><div class="fc-col"><div class="fc-time">21:00</div><div class="fc-kn">2</div><div class="fc-unit">kn</div><div class="fc-dir">OSO</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:7%"></div></div></div></div></div></div>
+  <div class="sec">7-Tage Tendenz</div>
+  <div class="week"><div class="wd wd-today"><div class="wd-day">06.26</div><div class="wd-amp">🟢</div><div class="wd-kn">0kn</div><div class="wd-dir">SSO</div></div><div class="wd"><div class="wd-day">06.27</div><div class="wd-amp">🟢</div><div class="wd-kn">0kn</div><div class="wd-dir">OSO</div></div><div class="wd"><div class="wd-day">06.28</div><div class="wd-amp">🟢</div><div class="wd-kn">0kn</div><div class="wd-dir">NNW</div></div><div class="wd"><div class="wd-day">06.29</div><div class="wd-amp">🟢</div><div class="wd-kn">0kn</div><div class="wd-dir">SW</div></div><div class="wd"><div class="wd-day">06.30</div><div class="wd-amp">🟢</div><div class="wd-kn">0kn</div><div class="wd-dir">S</div></div><div class="wd"><div class="wd-day">07.01</div><div class="wd-amp">🟢</div><div class="wd-kn">0kn</div><div class="wd-dir">SW</div></div><div class="wd"><div class="wd-day">07.02</div><div class="wd-amp">🟢</div><div class="wd-kn">0kn</div><div class="wd-dir">SSW</div></div></div>
+  <div class="sec">Reviere</div>
+  <div class="reviere"><div class="rev-row"><span class="rev-dot rev-go"></span><span class="rev-name">Funtana</span><span class="rev-val">4.4kn ONO Bft2</span></div><div class="rev-row"><span class="rev-dot rev-go"></span><span class="rev-name">Umag</span><span class="rev-val">4.6kn ONO Bft2</span></div><div class="rev-row"><span class="rev-dot rev-go"></span><span class="rev-name">Rovinj</span><span class="rev-val">4.9kn ONO Bft2</span></div><div class="rev-row"><span class="rev-dot rev-go"></span><span class="rev-name">Vrsar</span><span class="rev-val">4.9kn ONO Bft2</span></div><div class="rev-row"><span class="rev-dot rev-go"></span><span class="rev-name">Lim-Fjord</span><span class="rev-val">4.4kn ONO Bft2</span></div><div class="rev-row"><span class="rev-dot rev-go"></span><span class="rev-name">Pula</span><span class="rev-val">4.9kn ONO Bft2</span></div><div class="rev-row"><span class="rev-dot rev-go"></span><span class="rev-name">Pomer/Medulin</span><span class="rev-val">5.6kn NO Bft2</span></div><div class="rev-row"><span class="rev-dot rev-go"></span><span class="rev-name">Mali Lošinj</span><span class="rev-val">8.5kn NNO Bft3</span></div><div class="rev-row"><span class="rev-dot rev-go"></span><span class="rev-name">Kvarner</span><span class="rev-val">5.8kn NO Bft2</span></div></div>
+  <div class="sec">KI-Analyse</div>
+  <div class="ki-box"><div class="ki-text">Guten Morgen, Segler! Höhenrücken. Stabile antizyklonale Lage. 700hPa 3197m → Kein Bora-Risiko.</div></div>
+  <footer><div class="footer-logo">⛵ Adria Segelwetter</div>
     Daten: ECMWF · GFS · ICON-EU · Open-Meteo Marine<br>
     Kein Ersatz für offizielle Warnungen —
-    <a href="https://meteoalarm.org">Meteoalarm</a> ·
-    <a href="https://hhi.hr">HHI NAVTEX</a> ·
-    <a href="https://www.meteo.hr">DHMZ</a><br>
-    Letzte Aktualisierung: 26. Jun 2026 · 07:24 Uhr<br>
-    <a href="impressum.html">Impressum</a> ·
-    <a href="datenschutz.html">Datenschutz</a>
+    <a href="https://meteoalarm.org">Meteoalarm</a> · <a href="https://hhi.hr">HHI NAVTEX</a> · <a href="https://www.meteo.hr">DHMZ</a><br>
+    Letzte Aktualisierung: 26. Jun 2026 · 07:31 Uhr
   </footer>
 </div>
-
 <script>
-const U=[{h:7,m:35,l:'07:35 Uhr'},{h:12,m:0,l:'12:00 Uhr'},{h:16,m:0,l:'16:00 Uhr'}];
-function nu(){
-  const n=new Date(),c=n.getHours()*60+n.getMinutes();
-  for(const t of U){if(t.h*60+t.m>c){const d=new Date(n);d.setHours(t.h,t.m,0,0);return{d,l:t.l};}}
-  const d=new Date(n);d.setDate(d.getDate()+1);d.setHours(7,35,0,0);
-  return{d,l:'07:35 Uhr (morgen)'};
-}
+const U=[{h:7,m:35,l:'07:35'},{h:12,m:0,l:'12:00'},{h:16,m:0,l:'16:00'},{h:20,m:0,l:'20:00'},{h:0,m:0,l:'00:00'}];
+function nu(){const n=new Date(),c=n.getHours()*60+n.getMinutes();
+for(const t of U){if(t.h*60+t.m>c){const d=new Date(n);d.setHours(t.h,t.m,0,0);return{d,l:t.l+' Uhr'};}}
+const d=new Date(n);d.setDate(d.getDate()+1);d.setHours(7,35,0,0);return{d,l:'07:35 Uhr (morgen)'};}
 function p(n){return String(n).padStart(2,'0');}
-function tick(){
-  const{d,l}=nu(),diff=d-new Date(),s=Math.max(0,Math.floor(diff/1000));
-  document.getElementById('nextUpdateTime').textContent=l;
-  document.getElementById('countdown').textContent=
-    diff>0?p(Math.floor(s/3600))+':'+p(Math.floor(s%3600/60))+':'+p(s%60):'🔄';
-}
+function tick(){const{d,l}=nu(),diff=d-new Date(),s=Math.max(0,Math.floor(diff/1000));
+document.getElementById('nut').textContent=l;
+document.getElementById('cd').textContent=diff>0?p(Math.floor(s/3600))+':'+p(Math.floor(s%3600/60))+':'+p(s%60):'🔄';}
 tick();setInterval(tick,1000);
-</script>
-</body>
-</html>
+</script></body></html>
