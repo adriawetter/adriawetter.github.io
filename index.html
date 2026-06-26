@@ -90,7 +90,7 @@ footer a{color:var(--muted);text-decoration:none}
 <body><div class="page">
   <div class="masthead">
     <div><h1>Adria<br><span>Segelwetter</span></h1><div class="sub">Funtana · Istrien · Nordadria</div></div>
-    <div><div class="ts">45°10'N 13°37'E<br>26. Jun 2026<br>Akt. 20:01 Uhr</div></div>
+    <div><div class="ts">45°10'N 13°37'E<br>26. Jun 2026<br>Akt. 21:23 Uhr</div></div>
   </div>
   <div class="update-bar">
     <div class="dot-live"></div><span class="label">Nächstes Update</span>
@@ -141,11 +141,11 @@ Gesamteinschätzung für Segler: Die heutigen Abendstunden bieten ideale Bedingu
     Daten: ECMWF · GFS · ICON-EU · Open-Meteo Marine<br>
     Kein Ersatz für offizielle Warnungen —
     <a href="https://meteoalarm.org">Meteoalarm</a> · <a href="https://hhi.hr">HHI NAVTEX</a> · <a href="https://www.meteo.hr">DHMZ</a><br>
-    Letzte Aktualisierung: 26. Jun 2026 · 20:01 Uhr
+    Letzte Aktualisierung: 26. Jun 2026 · 21:23 Uhr
   </footer>
 </div>
 <script>
-const U=[{h:7,m:35,l:'07:35'},{h:12,m:0,l:'12:00'},{h:16,m:0,l:'16:00'},{h:20,m:0,l:'20:00'},{h:0,m:0,l:'00:00'}];
+const U=[{h:0,m:0,l:'00:00'},{h:3,m:0,l:'03:00'},{h:6,m:0,l:'06:00'},{h:9,m:0,l:'09:00'},{h:12,m:0,l:'12:00'},{h:15,m:0,l:'15:00'},{h:18,m:0,l:'18:00'},{h:21,m:0,l:'21:00'}];
 function nu(){const n=new Date(),c=n.getHours()*60+n.getMinutes();
 for(const t of U){if(t.h*60+t.m>c){const d=new Date(n);d.setHours(t.h,t.m,0,0);return{d,l:t.l+' Uhr'};}}
 const d=new Date(n);d.setDate(d.getDate()+1);d.setHours(7,35,0,0);return{d,l:'07:35 Uhr (morgen)'};}
