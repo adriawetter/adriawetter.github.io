@@ -77,6 +77,16 @@ body{background:var(--deep);color:var(--sail);font-family:'DM Sans',system-ui,sa
 .rev-name{flex:1}.rev-val{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted)}
 .ki-box{background:rgba(11,54,84,.3);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:16px;margin-bottom:16px}
 .ki-text{font-family:'DM Serif Display',serif;font-size:.95rem;line-height:1.7;color:#C8D8E8;font-style:italic}
+.dhmz-box{background:rgba(26,74,122,.2);border:1px solid #2A6AAA;border-radius:12px;padding:14px;margin-bottom:14px}
+.dhmz-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(42,106,170,.4)}
+.dhmz-logo{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#5BA3E8;background:rgba(91,163,232,.15);border:1px solid #5BA3E8;border-radius:4px;padding:2px 8px}
+.dhmz-ts{font-size:.7rem;color:var(--muted)}
+.dhmz-warn{background:rgba(192,57,43,.15);border:1px solid rgba(192,57,43,.5);border-radius:8px;padding:10px;margin-bottom:8px}
+.dhmz-warn-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.dhmz-warn-txt{font-size:.82rem;color:var(--sail);line-height:1.5}
+.dhmz-row{font-size:.82rem;color:#CBD5E1;line-height:1.5;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(26,92,138,.3)}
+.dhmz-row:last-child{border-bottom:none}
+.dhmz-lbl{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-right:6px}
 .navtex{margin-bottom:16px}
 .navtex-item{padding:10px 0;border-bottom:1px solid rgba(26,92,138,.4);font-size:.82rem}
 .navtex-item:last-child{border-bottom:none}
@@ -90,13 +100,17 @@ footer a{color:var(--muted);text-decoration:none}
 <body><div class="page">
   <div class="masthead">
     <div><h1>Adria<br><span>Segelwetter</span></h1><div class="sub">Funtana · Istrien · Nordadria</div></div>
-    <div><div class="ts">45°10'N 13°37'E<br>28. Jun 2026<br>Akt. 22:07 Uhr</div></div>
+    <div><div class="ts">45°10'N 13°37'E<br>28. Jun 2026<br>Akt. 22:16 Uhr</div></div>
   </div>
   <div class="update-bar">
     <div class="dot-live"></div><span class="label">Nächstes Update</span>
     <span class="next-t" id="nut">—</span><span class="cd" id="cd">--:--:--</span>
   </div>
   <div style="background:rgba(232,196,42,.10);border:1px solid #E8C42A;border-radius:10px;padding:10px 14px;margin-bottom:12px;display:flex;align-items:flex-start;gap:10px;"><span style="font-size:1rem;flex-shrink:0">⚠️</span><div><div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#E8C42A;margin-bottom:3px">Meteoalarm</div><div style="font-size:.85rem;color:#E2E8F0;line-height:1.5">🟡 HR [28.06 16:42]: Gelb Windwarnung Kroatien — North Dalmatia Region</div></div></div>
+  <div class="dhmz-box"><div class="dhmz-header"><span class="dhmz-logo">DHMZ</span><span class="dhmz-ts">PMC Split · 2026-06-28 15:05</span></div><div class="dhmz-warn"><div class="dhmz-warn-lbl" style="color:#E87070">⚠️ WARNUNG</div><div class="dhmz-warn-txt">Am Nachmittag im äußersten Süden örtliche Nordwestböen, 35-40 kn. Die Wetterlage
+Der Hochdruckkeil dehnt sich aus Norden über die Adria.</div></div><div class="dhmz-row"><span class="dhmz-lbl">Nächste 12h</span> für die Adria für die nächsten 12 Stunden
+Nordwest-, im Küstenbereich auch Südwestwinde, 4-14 kn, am Nachmittag über die Mitteladria bis 20, im äußersten Süden kurz bis 24. In der Nacht entlang der Küste nachlassend und stellenweise drehend auf Bora, 4-12 kn. Das Meer 1-2, am Nachmittag auf der Mitt</div><div class="dhmz-row"><span class="dhmz-lbl">Ausblick 24h</span> für die Adria für die weiteren 12 Stunden
+Schwache, stellenweise mäßige Nordwestwinde, im Küstenbereich stellenweise auch Bora, über die Süd- und teils über die Mitteladria drehend auf Südostwinde. Das Meer glatt, oder schwach bewegt, gegen Mittag au</div></div>
   <div class="status-hero go">
     <div class="s-icon">⛵</div>
     <div><div class="verdict verdict-go">🟢 GUT</div><div class="bft-sub">NO-Wind · See 0.0m</div></div>
@@ -136,7 +150,7 @@ GROSSER ABSTAND ERBETEN.</div></div></div>
     Daten: ECMWF · GFS · ICON-EU · Open-Meteo Marine<br>
     Kein Ersatz für offizielle Warnungen —
     <a href="https://meteoalarm.org">Meteoalarm</a> · <a href="https://hhi.hr">HHI NAVTEX</a> · <a href="https://www.meteo.hr">DHMZ</a><br>
-    Letzte Aktualisierung: 28. Jun 2026 · 22:07 Uhr
+    Letzte Aktualisierung: 28. Jun 2026 · 22:16 Uhr
   </footer>
 </div>
 <script>
