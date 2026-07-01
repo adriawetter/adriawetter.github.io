@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TEST — Segelwetter Fixes</title>
+<style>
+body{margin:0;padding:16px;background:#0B1929;color:#E2E8F0;font-family:-apple-system,sans-serif;max-width:480px}
+h2{color:#E87B1A;font-size:1rem;text-transform:uppercase;letter-spacing:.1em;margin:20px 0 8px}
+.box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px;margin-bottom:14px}
+.label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#E87B1A;margin-bottom:4px}
+.dhmz-warn{background:rgba(192,57,43,.1);border:1px solid #C0392B;border-radius:8px;padding:10px;margin-bottom:8px}
+.tag{display:inline-block;padding:3px 8px;border-radius:4px;font-size:.7rem;font-weight:700;background:#1A3A5C;color:#63B3ED;margin-bottom:8px}
+</style>
+</head>
+<body>
+<div style="color:#A0AEC0;font-size:.75rem;margin-bottom:16px">
+  TEST-HTML — 01.07.2026 10:51 — Vergleich mit Produktion
+</div>
+
+<h2>FIX 1: 7-Tage Datum (war: 07.01, neu: 01.07.)</h2>
+<div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:4px">
+  <div style="min-width:70px;text-align:center;padding:8px;
+background:rgba(255,255,255,.05);border-radius:8px;border:2px solid #E87B1A;">
+  <div style="font-size:.7rem;color:#A0AEC0;margin-bottom:4px">01.07.</div>
+  <div style="font-size:1.2rem">🟢</div>
+  <div style="font-size:.85rem;font-weight:700;color:#E2E8F0">11kn</div>
+  <div style="font-size:.65rem;color:#A0AEC0">WNW</div>
+  <div style="font-size:.7rem;color:#63B3ED">💧2mm</div>
+</div><div style="min-width:70px;text-align:center;padding:8px;
+background:rgba(255,255,255,.05);border-radius:8px;">
+  <div style="font-size:.7rem;color:#A0AEC0;margin-bottom:4px">02.07.</div>
+  <div style="font-size:1.2rem">🟢</div>
+  <div style="font-size:.85rem;font-weight:700;color:#E2E8F0">10kn</div>
+  <div style="font-size:.65rem;color:#A0AEC0">NNO</div>
+  <div style="font-size:.7rem;color:#63B3ED">💧11mm</div>
+</div><div style="min-width:70px;text-align:center;padding:8px;
+background:rgba(255,255,255,.05);border-radius:8px;">
+  <div style="font-size:.7rem;color:#A0AEC0;margin-bottom:4px">03.07.</div>
+  <div style="font-size:1.2rem">🟢</div>
+  <div style="font-size:.85rem;font-weight:700;color:#E2E8F0">12kn</div>
+  <div style="font-size:.65rem;color:#A0AEC0">SO</div>
+  
+</div><div style="min-width:70px;text-align:center;padding:8px;
+background:rgba(255,255,255,.05);border-radius:8px;">
+  <div style="font-size:.7rem;color:#A0AEC0;margin-bottom:4px">04.07.</div>
+  <div style="font-size:1.2rem">🟢</div>
+  <div style="font-size:.85rem;font-weight:700;color:#E2E8F0">9kn</div>
+  <div style="font-size:.65rem;color:#A0AEC0">ONO</div>
+  
+</div><div style="min-width:70px;text-align:center;padding:8px;
+background:rgba(255,255,255,.05);border-radius:8px;">
+  <div style="font-size:.7rem;color:#A0AEC0;margin-bottom:4px">05.07.</div>
+  <div style="font-size:1.2rem">🟢</div>
+  <div style="font-size:.85rem;font-weight:700;color:#E2E8F0">7kn</div>
+  <div style="font-size:.65rem;color:#A0AEC0">SSO</div>
+  
+</div><div style="min-width:70px;text-align:center;padding:8px;
+background:rgba(255,255,255,.05);border-radius:8px;">
+  <div style="font-size:.7rem;color:#A0AEC0;margin-bottom:4px">06.07.</div>
+  <div style="font-size:1.2rem">🟢</div>
+  <div style="font-size:.85rem;font-weight:700;color:#E2E8F0">7kn</div>
+  <div style="font-size:.65rem;color:#A0AEC0">WSW</div>
+  
+</div><div style="min-width:70px;text-align:center;padding:8px;
+background:rgba(255,255,255,.05);border-radius:8px;">
+  <div style="font-size:.7rem;color:#A0AEC0;margin-bottom:4px">07.07.</div>
+  <div style="font-size:1.2rem">🟢</div>
+  <div style="font-size:.85rem;font-weight:700;color:#E2E8F0">7kn</div>
+  <div style="font-size:.65rem;color:#A0AEC0">SW</div>
+  
+</div>
+</div>
+
+<h2>FIX 2: DHMZ Timestamp (war: Fetch-Zeit, neu: Berichtszeit)</h2>
+<div class="box">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+    <span class="tag">DHMZ</span>
+    <span style="font-size:.8rem;color:#A0AEC0">PMC Split · 01.07.2026 06:00 Uhr</span>
+  </div>
+  <div class="dhmz-warn">
+    <div class="label">⚠️ Warnung</div>
+    <div style="font-size:.85rem;line-height:1.5">Örtliche Böen von Bora, auf dem offenen Meer der Nordadria auch Nordwestböen, 35-45 kn, in der Nacht im Velebitkanal Böen von Bora 35-70 kn. Gewitter sind möglich. — Wetterlage: Der flache Trog verlagert sich über die Adria südostwärts.</div>
+  </div>
+  <div style="margin-bottom:8px">
+    <span style="font-size:.65rem;font-weight:700;color:#E87B1A">Nächste 12h</span>
+    <div style="font-size:.82rem;line-height:1.5;color:#CBD5E0">Nordwest-, im Küstenbereich auch Südwestwinde, 4-12 kn, am Nachmittag 6-16 kn. Am Anfang im Küstenbereich der Süd- und Mitteladria und wieder am Nachmittag, örtlich Bora, 8-18 kn. Das Meer 2-3. Die Sichtweite um 20 km. Teilweise heiter, am Vormittag periodisch vorwiegend heiter, strichweise bei der stärkeren Bewölkung Regen und Gewitterschauer möglich, überwiegend am Nachmittag.</div>
+  </div>
+  <div>
+    <span style="font-size:.65rem;font-weight:700;color:#E87B1A">Ausblick 24h</span>
+    <div style="font-size:.82rem;line-height:1.5;color:#CBD5E0">Schwache bis mäßige Nordwestwinde, am Abend auf dem Offenen der Nordadria zunehmend bis auf starke, stellenweise steife, im Küstenbereich drehend auf mäßige, über die Mitteladria frische, über die Nordadria starke, im Velebitkanal steife Bora. Das Meer schwach bis leicht bewegt, auf dem Offenen der Nordadria dieser Nacht mäßig bewegt. Wechselnd bewölkt, strichweise Regen, oder Gewitterschauer.</div>
+  </div>
+</div>
+
+<h2>FIX 3: GO/NEIN mit Erklaerung (war: kein Kontext)</h2>
+<div style="background:rgba(192,57,43,.14);border:1px solid #C0392B;border-radius:12px;
+padding:14px 16px;margin-bottom:14px">
+  <div style="display:flex;align-items:center;gap:14px">
+    <div style="font-size:1.5rem;font-weight:800;color:#C0392B">NEIN</div>
+    <div>
+      <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;color:#C0392B;margin-bottom:2px">Empfehlung</div>
+      <div style="font-size:.85rem;color:#E2E8F0;line-height:1.45">Sturm-Warnung aktiv. Nicht auslaufen.</div>
+    </div>
+  </div>
+  
+</div>
+
+<h2>FIX 4: Meteoalarm (lesbareres Datum-Label)</h2>
+<div style="background:rgba(232,123,26,.1);border:1px solid #E87B1A;
+border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:.85rem;color:#E2E8F0">
+  <span style="font-size:.65rem;font-weight:700;text-transform:uppercase;color:#E87B1A">⚠️ Meteoalarm</span><br>
+  🟡 HR [📅 30.06 10:48]: Gelb Windwarnung Kroatien — Rijeka Region
+</div><div style="background:rgba(232,123,26,.1);border:1px solid #E87B1A;
+border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:.85rem;color:#E2E8F0">
+  <span style="font-size:.65rem;font-weight:700;text-transform:uppercase;color:#E87B1A">⚠️ Meteoalarm</span><br>
+  🟡 SI [📅 30.06 04:41]: Gelb Gewitterwarnung Slowenien — Slovenia / Sea
+</div><div style="background:rgba(232,123,26,.1);border:1px solid #E87B1A;
+border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:.85rem;color:#E2E8F0">
+  <span style="font-size:.65rem;font-weight:700;text-transform:uppercase;color:#E87B1A">⚠️ Meteoalarm</span><br>
+  🟡 HR [📅 30.06 10:48]: Gelb Windwarnung Kroatien — Split Region
+</div>
+
+</body>
+</html>
