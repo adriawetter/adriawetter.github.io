@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="refresh" content="1800">
+<title>TEST v2 — Adria Segelwetter</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#091E2E;--water:#0B3654;--line:#1A5C8A;--gold:#C8872A;--gold2:#E89A3A;--sail:#F2EDE8;--muted:#7EA8C4;--dim:#3A6B8A;--go:#2D9C5E;--warn:#E87B1A;--stop:#C0392B}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--deep);color:var(--sail);font-family:"DM Sans",system-ui,sans-serif;font-weight:300;min-height:100vh;padding:20px 16px 40px;background-image:linear-gradient(rgba(26,92,138,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(26,92,138,.08) 1px,transparent 1px);background-size:40px 40px}
+.page{max-width:640px;margin:0 auto}
+.masthead{display:flex;align-items:flex-start;justify-content:space-between;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.masthead h1{font-family:"DM Serif Display",serif;font-size:1.75rem;font-weight:400;line-height:1.1}
+.masthead h1 span{color:var(--gold)}
+.sub{margin-top:4px;font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.ts{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--muted);line-height:1.8;text-align:right}
+.update-bar{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(11,54,84,.6);border:1px solid var(--line);border-radius:8px;margin-bottom:16px;font-size:.8rem}
+.dot-live{width:7px;height:7px;border-radius:50%;background:var(--go);box-shadow:0 0 8px var(--go);flex-shrink:0;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.label{color:var(--muted);flex:1}.next-t{color:var(--gold);font-weight:500}
+.cd{font-family:"JetBrains Mono",monospace;font-size:.85rem;font-weight:600;letter-spacing:.05em}
+.status-hero{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:18px 20px;border-radius:12px;margin-bottom:16px}
+.go{background:linear-gradient(135deg,#062918,#0a3d20);border:1px solid #1a6b3a}
+.warn{background:linear-gradient(135deg,#2a1800,#3d2200);border:1px solid #6b3a0a}
+.stop{background:linear-gradient(135deg,#280600,#3d0d00);border:1px solid #6b1a0a}
+.s-icon{font-size:2.2rem}.verdict{font-family:"DM Serif Display",serif;font-size:1.3rem}
+.verdict-go{color:#5ddb8e}.verdict-warn{color:#f0a854}.verdict-stop{color:#f07054}
+.bft-sub{font-size:.8rem;color:var(--muted);margin-top:2px}
+.pct{text-align:right;font-family:"JetBrains Mono",monospace}
+.pct-num{font-size:1.6rem;font-weight:600}
+.pct-go{color:var(--go)}.pct-warn{color:var(--warn)}.pct-stop{color:var(--stop)}
+.pct-lbl{font-size:.65rem;color:var(--muted);letter-spacing:.08em}
+.instruments{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.instr{background:rgba(11,54,84,.45);border:1px solid var(--line);border-radius:10px;padding:14px}
+.il{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:6px;font-weight:500}
+.iv{font-family:"JetBrains Mono",monospace;font-size:1.5rem;font-weight:600;line-height:1}
+.iu{font-size:.7rem;color:var(--dim);font-family:"DM Sans",sans-serif}
+.is{font-size:.75rem;color:var(--muted);margin-top:4px}
+.models-box{background:rgba(11,54,84,.3);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:16px}
+.ml{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px;font-weight:500}
+.mr{display:flex;gap:8px}
+.model-chip{flex:1;background:rgba(26,92,138,.3);border:1px solid var(--line);border-radius:6px;padding:8px;text-align:center}
+.mn{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin-bottom:3px}
+.mv{font-family:"JetBrains Mono",monospace;font-size:.8rem;font-weight:600;color:var(--gold2)}
+.sec{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:500;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sec::after{content:"";flex:1;height:1px;background:var(--line)}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:16px}
+.wd{background:rgba(11,54,84,.3);border:1px solid var(--line);border-radius:8px;padding:8px 4px;text-align:center}
+.wd-today{border-color:var(--gold)}
+.wd-day{font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+.wd-amp{font-size:1.1rem;margin-bottom:4px}
+.wd-kn{font-family:"JetBrains Mono",monospace;font-size:.7rem;font-weight:600}
+.wd-dir{font-size:.55rem;color:var(--dim)}
+.wd-rain{font-size:.55rem;color:#60a5fa}
+.wd-spread{font-size:.55rem;color:var(--warn)}
+.reviere{margin-bottom:16px}
+.rev-row{display:flex;align-items:center;padding:9px 0;border-bottom:1px solid rgba(26,92,138,.4);font-size:.85rem}
+.rev-row:last-child{border-bottom:none}
+.rev-dot{width:7px;height:7px;border-radius:50%;margin-right:10px;flex-shrink:0}
+.rev-go{background:var(--go);box-shadow:0 0 6px var(--go)}
+.rev-warn{background:var(--warn)}.rev-stop{background:var(--stop)}
+.rev-name{flex:1}.rev-val{font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--muted)}
+.dhmz-box{background:rgba(26,74,122,.2);border:1px solid #2A6AAA;border-radius:12px;padding:14px;margin-bottom:14px}
+.dhmz-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(42,106,170,.4)}
+.dhmz-logo{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#5BA3E8;background:rgba(91,163,232,.15);border:1px solid #5BA3E8;border-radius:4px;padding:2px 8px}
+.dhmz-ts{font-size:.7rem;color:var(--muted)}
+.dhmz-warn{background:rgba(192,57,43,.15);border:1px solid rgba(192,57,43,.5);border-radius:8px;padding:10px;margin-bottom:8px}
+.dhmz-warn-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.dhmz-warn-txt{font-size:.82rem;color:var(--sail);line-height:1.5}
+.dhmz-row{font-size:.82rem;color:#CBD5E1;line-height:1.5;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid rgba(26,92,138,.3)}
+.dhmz-row:last-child{border-bottom:none}
+.dhmz-lbl{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-right:6px}
+.ki-box{background:rgba(11,54,84,.3);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:16px;margin-bottom:16px}
+.ki-text{font-family:"DM Serif Display",serif;font-size:.95rem;line-height:1.7;color:#C8D8E8;font-style:italic}
+footer{border-top:1px solid var(--line);padding-top:16px;text-align:center;font-size:.7rem;color:var(--dim);line-height:1.8}
+footer a{color:var(--muted);text-decoration:none}
+.footer-logo{font-family:"DM Serif Display",serif;font-size:1rem;color:var(--muted);margin-bottom:4px}
+.test-banner{background:rgba(232,123,26,.15);border:1px solid #E87B1A;border-radius:8px;padding:8px 14px;margin-bottom:16px;font-size:.75rem;color:#E87B1A;text-align:center;font-weight:600}
+</style></head>
+<body><div class="page">
+<div class="test-banner">⚙️ TEST v2 — 01.07.2026 11:25 — Nicht die Produktionsseite</div>
+<div class="masthead">
+  <div><h1>Adria<br><span>Segelwetter</span></h1><div class="sub">Funtana · Istrien · Nordadria</div></div>
+  <div><div class="ts">45°10'N 13°37'E<br>01. Jul 2026<br>Akt. 11:25 Uhr</div></div>
+</div>
+<div class="update-bar">
+  <div class="dot-live"></div><span class="label">Nächstes Update</span>
+  <span class="next-t" id="nut">—</span>&nbsp;<span class="cd" id="cd">--:--:--</span>
+</div>
+<div style="background:rgba(232,123,26,.08);border:1px solid rgba(232,123,26,.4);border-radius:10px;padding:10px 14px;margin-bottom:10px">
+  <div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#E87B1A;margin-bottom:4px">⚠️ Meteoalarm</div>
+  <div style="font-size:.85rem;color:#E2E8F0;line-height:1.5">🟡 HR [30.06 10:48]: Gelb Windwarnung Kroatien — Rijeka Region</div>
+</div><div style="background:rgba(232,123,26,.08);border:1px solid rgba(232,123,26,.4);border-radius:10px;padding:10px 14px;margin-bottom:10px">
+  <div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#E87B1A;margin-bottom:4px">⚠️ Meteoalarm</div>
+  <div style="font-size:.85rem;color:#E2E8F0;line-height:1.5">🟡 SI [30.06 04:41]: Gelb Gewitterwarnung Slowenien — Slovenia / Sea</div>
+</div><div style="background:rgba(232,123,26,.08);border:1px solid rgba(232,123,26,.4);border-radius:10px;padding:10px 14px;margin-bottom:10px">
+  <div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#E87B1A;margin-bottom:4px">⚠️ Meteoalarm</div>
+  <div style="font-size:.85rem;color:#E2E8F0;line-height:1.5">🟡 HR [30.06 10:48]: Gelb Windwarnung Kroatien — Split Region</div>
+</div>
+<div style="background:rgba(192,57,43,.14);border:1px solid #C0392B;border-radius:12px;padding:14px 16px;margin-bottom:14px;display:flex;align-items:flex-start;gap:14px">
+  <div style="font-size:1.6rem;font-weight:800;color:#C0392B;flex-shrink:0;padding-top:2px">NEIN</div>
+  <div style="flex:1">
+    <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#C0392B;margin-bottom:4px">Empfehlung</div>
+    <div style="font-size:.88rem;color:#E2E8F0;line-height:1.5">Sturm-Warnung aktiv. Nicht auslaufen.</div>
+    <div style="font-size:.78rem;color:#A0AEC0;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.08)">DHMZ meldet Bora 70kn — bei ≥50kn auch Istrien/Funtana betroffen.</div>
+  </div>
+</div>
+<div style="background:rgba(232,123,26,.10);border:1px solid #E87B1A;border-radius:12px;padding:14px;margin-bottom:14px">
+  <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#E87B1A;margin-bottom:8px">⚠️ Quellen uneinig — Erklaerung</div>
+  <div style="font-size:.83rem;color:#E2E8F0;line-height:1.5;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.07)">&bull; DHMZ meldet Bora bis 70kn — Modelle nur 3kn. Bora ist ein lokales Phänomen: Modelle messen Funtana, DHMZ den Velebitkanal. Im Zweifel gilt die amtliche Prognose.</div>
+</div>
+<div class="dhmz-box"><div class="dhmz-header"><span class="dhmz-logo">DHMZ</span><span class="dhmz-ts">PMC Split · 01.07.2026 06:00 Uhr</span></div><div class="dhmz-warn"><div class="dhmz-warn-lbl" style="color:#E87070">⚠️ WARNUNG</div><div class="dhmz-warn-txt">Örtliche Böen von Bora, auf dem offenen Meer der Nordadria auch Nordwestböen, 35-45 kn, in der Nacht im Velebitkanal Böen von Bora 35-70 kn. Gewitter sind möglich. — Wetterlage: Der flache Trog verlagert sich über die Adria südostwärts.</div></div><div class="dhmz-row"><span class="dhmz-lbl">Nächste 12h</span> Nordwest-, im Küstenbereich auch Südwestwinde, 4-12 kn, am Nachmittag 6-16 kn. Am Anfang im Küstenbereich der Süd- und Mitteladria und wieder am Nachmittag, örtlich Bora, 8-18 kn. Das Meer 2-3. Die Sichtweite um 20 km. Teilweise heiter, am Vormittag periodisch vorwiegend heiter, strichweise bei der stärkeren Bewölkung Regen und Gewitterschauer möglich, überwiegend am Nachmittag.</div><div class="dhmz-row"><span class="dhmz-lbl">Ausblick 24h</span> Schwache bis mäßige Nordwestwinde, am Abend auf dem Offenen der Nordadria zunehmend bis auf starke, stellenweise steife, im Küstenbereich drehend auf mäßige, über die Mitteladria frische, über die Nordadria starke, im Velebitkanal steife Bora. Das Meer schwach bis leicht bewegt, auf dem Offenen der Nordadria dieser Nacht mäßig bewegt. Wechselnd bewölkt, strichweise Regen, oder Gewitterschauer.</div></div>
+<div class="status-hero go">
+  <div class="s-icon">⛵</div>
+  <div><div class="verdict verdict-go">🟢 GUT</div><div class="bft-sub">WSW-Wind · See 0.0m</div></div>
+  <div class="pct"><div class="pct-num pct-go">83</div><div class="pct-lbl">% SICHER</div></div>
+</div>
+<div class="instruments">
+  <div class="instr"><div class="il">💨 Wind</div><div class="iv">2.3 <span class="iu">kn</span></div><div class="is">WSW · Böen 5.2 kn</div></div>
+  <div class="instr"><div class="il">🌊 Seegang</div><div class="iv">0.0 <span class="iu">m</span></div><div class="is">Periode 2s</div></div>
+  <div class="instr"><div class="il">🧭 Luftdruck</div><div class="iv">1010 <span class="iu">hPa</span></div><div class="is" style="color:var(--muted)">▼ 0.5 hPa/3h</div></div>
+  <div class="instr"><div class="il">🌡 Temperatur</div><div class="iv">30.2 <span class="iu">°C</span></div><div class="is">Wasser: 27.0°C</div></div>
+</div>
+<div class="sec">7-Tage Tendenz</div>
+<div class="week"><div class="wd wd-today"><div class="wd-day">01.07.</div><div class="wd-amp">🟢</div><div class="wd-kn">11kn</div><div class="wd-dir">WNW</div><div class="wd-rain">💧2mm</div></div><div class="wd"><div class="wd-day">02.07.</div><div class="wd-amp">🟢</div><div class="wd-kn">10kn</div><div class="wd-dir">NNO</div><div class="wd-rain">💧11mm</div></div><div class="wd"><div class="wd-day">03.07.</div><div class="wd-amp">🟢</div><div class="wd-kn">12kn</div><div class="wd-dir">SO</div></div><div class="wd"><div class="wd-day">04.07.</div><div class="wd-amp">🟢</div><div class="wd-kn">9kn</div><div class="wd-dir">ONO</div></div><div class="wd"><div class="wd-day">05.07.</div><div class="wd-amp">🟢</div><div class="wd-kn">7kn</div><div class="wd-dir">SSO</div></div><div class="wd"><div class="wd-day">06.07.</div><div class="wd-amp">🟢</div><div class="wd-kn">7kn</div><div class="wd-dir">WSW</div></div><div class="wd"><div class="wd-day">07.07.</div><div class="wd-amp">🟢</div><div class="wd-kn">7kn</div><div class="wd-dir">SW</div></div></div>
+<footer>
+  <div class="footer-logo">⛵ Adria Segelwetter</div>
+  Daten: ECMWF · GFS · ICON-EU · Open-Meteo Marine<br>
+  Kein Ersatz für offizielle Warnungen —
+  <a href="https://meteoalarm.org">Meteoalarm</a> · <a href="https://hhi.hr">HHI NAVTEX</a> · <a href="https://www.meteo.hr">DHMZ</a><br>
+  Letzte Aktualisierung: 01. Jul 2026 · 11:25 Uhr
+</footer>
+</div>
+<script>
+const U=[{h:0,m:0,l:"00:00"},{h:3,m:0,l:"03:00"},{h:6,m:0,l:"06:00"},{h:9,m:0,l:"09:00"},{h:12,m:0,l:"12:00"},{h:15,m:0,l:"15:00"},{h:18,m:0,l:"18:00"},{h:21,m:0,l:"21:00"}];
+function nu(){const n=new Date(),c=n.getHours()*60+n.getMinutes();
+for(const t of U){if(t.h*60+t.m>c){const d=new Date(n);d.setHours(t.h,t.m,0,0);return{d,l:t.l+" Uhr"};}}
+const d=new Date(n);d.setDate(d.getDate()+1);d.setHours(0,0,0,0);return{d,l:"00:00 Uhr (morgen)"};}
+function p(n){return String(n).padStart(2,"0");}
+function tick(){const{d,l}=nu(),diff=d-new Date(),s=Math.max(0,Math.floor(diff/1000));
+document.getElementById("nut").textContent=l;
+document.getElementById("cd").textContent=diff>0?p(Math.floor(s/3600))+":"+p(Math.floor(s%3600/60))+":"+p(s%60):"🔄";}
+tick();setInterval(tick,1000);
+</script></body></html>
