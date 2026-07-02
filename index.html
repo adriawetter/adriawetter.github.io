@@ -51,6 +51,7 @@ body{background:var(--deep);color:var(--sail);font-family:'DM Sans',system-ui,sa
 .hoehen-lvl{color:var(--muted)}
 .hoehen-synop{font-size:.8rem;color:var(--muted);line-height:1.5;font-style:italic}
 .hoehen-warn{color:#E87B1A;font-style:normal;margin-top:4px}
+.fc-conflict{font-size:.75rem;color:#E87B1A;line-height:1.5;margin:-8px 0 16px;font-style:italic}
 .sec{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:500;margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .sec::after{content:'';flex:1;height:1px;background:var(--line)}
 .fc-scroll{overflow-x:auto;margin-bottom:16px;scrollbar-width:none}
@@ -108,7 +109,7 @@ footer a{color:var(--muted);text-decoration:none}
 <body><div class="page">
   <div class="masthead">
     <div><h1>Adria<br><span>Segelwetter</span></h1><div class="sub">Funtana &middot; Istrien &middot; Nordadria</div></div>
-    <div><div class="ts">45°10'N 13°37'E<br>02. Jul 2026<br>Akt. 22:53 Uhr</div></div>
+    <div><div class="ts">45°10'N 13°37'E<br>02. Jul 2026<br>Akt. 22:57 Uhr</div></div>
   </div>
   <div class="update-bar">
     <div class="dot-live"></div><span class="label">Nächstes Update</span>
@@ -136,6 +137,7 @@ footer a{color:var(--muted);text-decoration:none}
   <div class="sec">Höhenlage</div><div class="hoehen-box"><div class="hoehen-grid"><div class="hoehen-row"><span class="hoehen-lvl">300hPa</span><span>9597m &middot; -36.5&deg;C</span></div><div class="hoehen-row"><span class="hoehen-lvl">500hPa</span><span>5834m &middot; -7.2&deg;C</span></div><div class="hoehen-row"><span class="hoehen-lvl">700hPa</span><span>3154m &middot; 5.5&deg;C</span></div><div class="hoehen-row"><span class="hoehen-lvl">850hPa</span><span>1540m &middot; 15.3&deg;C</span></div></div><div class="hoehen-synop">Höhenrücken. Stabile antizyklonale Lage. 700hPa 3154m → Kein Bora-Risiko.</div><div class="hoehen-synop hoehen-warn">⚠️DHMZ warnt dennoch vor Bora — Hoehenkarte allein reicht bei flacher Kaltluft-Bora nicht als Ausschluss.</div></div>
   <div class="sec">Prognose 24 Stunden</div>
   <div class="fc-scroll"><div class="fc-tape"><div class="fc-col fc-now"><div class="fc-time">JETZT</div><div class="fc-kn">3</div><div class="fc-unit">kn</div><div class="fc-dir">OSO</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:11%"></div></div></div></div><div class="fc-col"><div class="fc-time">00:00</div><div class="fc-kn">4</div><div class="fc-unit">kn</div><div class="fc-dir">O</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:14%"></div></div></div></div><div class="fc-col"><div class="fc-time">02:00</div><div class="fc-kn">4</div><div class="fc-unit">kn</div><div class="fc-dir">ONO</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:12%"></div></div></div></div><div class="fc-col"><div class="fc-time">04:00</div><div class="fc-kn">5</div><div class="fc-unit">kn</div><div class="fc-dir">ONO</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:16%"></div></div></div></div><div class="fc-col"><div class="fc-time">06:00</div><div class="fc-kn">5</div><div class="fc-unit">kn</div><div class="fc-dir">ONO</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:17%"></div></div></div></div><div class="fc-col"><div class="fc-time">08:00</div><div class="fc-kn">5</div><div class="fc-unit">kn</div><div class="fc-dir">NO</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:15%"></div></div></div></div><div class="fc-col"><div class="fc-time">10:00</div><div class="fc-kn">5</div><div class="fc-unit">kn</div><div class="fc-dir">SO</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:18%"></div></div></div></div><div class="fc-col"><div class="fc-time">12:00</div><div class="fc-kn">7</div><div class="fc-unit">kn</div><div class="fc-dir">OSO</div><div class="fc-wave">🌊0.0m</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:23%"></div></div></div></div></div></div>
+  <div class="fc-conflict">⚠️ DHMZ warnt vor Bora, Punktmodell zeigt hier durchgehend Ruhe (max 7kn) — Modelle loesen Boeenspitzen oft nicht auf.</div>
   <div class="sec">7-Tage Tendenz</div>
   <div class="week"><div class="wd wd-today"><div class="wd-day">07.02</div><div class="wd-amp">🟢</div><div class="wd-kn">11kn</div><div class="wd-dir">NO</div><div class="wd-rain">💧4mm</div></div><div class="wd"><div class="wd-day">07.03</div><div class="wd-amp">🟢</div><div class="wd-kn">12kn</div><div class="wd-dir">SO</div></div><div class="wd"><div class="wd-day">07.04</div><div class="wd-amp">🟢</div><div class="wd-kn">9kn</div><div class="wd-dir">NO</div></div><div class="wd"><div class="wd-day">07.05</div><div class="wd-amp">🟢</div><div class="wd-kn">8kn</div><div class="wd-dir">SSW</div></div><div class="wd"><div class="wd-day">07.06</div><div class="wd-amp">🟢</div><div class="wd-kn">8kn</div><div class="wd-dir">WSW</div></div><div class="wd"><div class="wd-day">07.07</div><div class="wd-amp">🟢</div><div class="wd-kn">7kn</div><div class="wd-dir">SSO</div></div><div class="wd"><div class="wd-day">07.08</div><div class="wd-amp">🟢</div><div class="wd-kn">7kn</div><div class="wd-dir">SW</div><div class="wd-rain">💧1mm</div></div></div>
   <div class="sec">Reviere</div>
@@ -155,7 +157,7 @@ HALTEN SIE AUSSICHT.</div></div></div>
     Daten: ECMWF &middot; GFS &middot; ICON-EU &middot; Open-Meteo Marine<br>
     Kein Ersatz für offizielle Warnungen &mdash;
     <a href="https://meteoalarm.org">Meteoalarm</a> &middot; <a href="https://hhi.hr">HHI NAVTEX</a> &middot; <a href="https://www.meteo.hr">DHMZ</a><br>
-    Letzte Aktualisierung: 02. Jul 2026 &middot; 22:53 Uhr
+    Letzte Aktualisierung: 02. Jul 2026 &middot; 22:57 Uhr
   </footer>
 </div>
 <script>
