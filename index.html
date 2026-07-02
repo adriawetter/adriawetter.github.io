@@ -26,7 +26,7 @@ body{background:var(--deep);color:var(--sail);font-family:'DM Sans',system-ui,sa
 .s-icon{font-size:1.6rem}
 .verdict{font-family:'DM Serif Display',serif;font-size:1.05rem}
 .verdict-go{color:#5ddb8e}.verdict-warn{color:#f0a854}.verdict-stop{color:#f07054}
-.bft-sub{font-size:.8rem;color:var(--muted);margin-top:2px}.amp-grund{font-size:.75rem;color:var(--muted);margin-top:3px;line-height:1.3}
+.bft-sub{font-size:.8rem;color:var(--muted);margin-top:2px}.hero-sub{grid-column:1/-1;font-size:.8rem;color:var(--muted);margin-top:2px}.amp-grund{grid-column:1/-1;font-size:.75rem;color:var(--muted);margin-top:3px;line-height:1.3}.hero-banner{grid-column:1/-1;margin-top:10px;padding:10px 14px;background:rgba(240,112,84,.15);border:1px solid rgba(240,112,84,.4);border-radius:8px;text-align:center;font-weight:600;letter-spacing:.05em;font-family:'JetBrains Mono',monospace;color:#f07054}
 .pct{text-align:right;font-family:'JetBrains Mono',monospace}
 .pct-num{font-size:1.2rem;font-weight:600}
 .pct-go{color:var(--go)}.pct-warn{color:var(--warn)}.pct-stop{color:var(--stop)}
@@ -102,7 +102,7 @@ footer a{color:var(--muted);text-decoration:none}
 <body><div class="page">
   <div class="masthead">
     <div><h1>Adria<br><span>Segelwetter</span></h1><div class="sub">Funtana &middot; Istrien &middot; Nordadria</div></div>
-    <div><div class="ts">45°10'N 13°37'E<br>02. Jul 2026<br>Akt. 12:01 Uhr</div></div>
+    <div><div class="ts">45°10'N 13°37'E<br>02. Jul 2026<br>Akt. 12:21 Uhr</div></div>
   </div>
   <div class="update-bar">
     <div class="dot-live"></div><span class="label">Nächstes Update</span>
@@ -110,12 +110,15 @@ footer a{color:var(--muted);text-decoration:none}
   </div>
   <div style="background:rgba(232,196,42,.10);border:1px solid #E8C42A;border-radius:10px;padding:10px 14px;margin-bottom:12px;display:flex;align-items:flex-start;gap:10px;"><span style="font-size:1rem;flex-shrink:0">⚠️</span><div><div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#E8C42A;margin-bottom:3px">Meteoalarm</div><div style="font-size:.85rem;color:#E2E8F0;line-height:1.5">🟡 IT [02.07 09:03]: Gelb Windwarnung Italien — Sicilia</div></div></div>
   <div style="background:rgba(192,57,43,.14);border:1px solid #C0392B;border-radius:12px;padding:14px 16px;margin-bottom:14px;display:flex;align-items:center;gap:14px"><div style="font-size:1.5rem;font-weight:800;color:#C0392B;letter-spacing:.05em;flex-shrink:0">NEIN</div><div><div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#C0392B;margin-bottom:2px">Empfehlung</div><div style="font-size:.85rem;color:#E2E8F0;line-height:1.45">Sturm-Warnung aktiv. Nicht auslaufen.</div></div></div>
-  <div style="background:rgba(232,123,26,.10);border:1px solid #E87B1A;border-radius:12px;padding:14px;margin-bottom:14px"><div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#E87B1A;margin-bottom:2px">⚠️ Quellen uneinig</div><div style="font-size:.85rem;color:#E2E8F0;line-height:1.5;margin-top:6px">• DHMZ meldet Bora bis 70kn — Modelle nur 5-7kn. Moegliche regionale/zeitliche Differenz. Im Zweifel gilt die amtliche Prognose.</div></div>
-  <div class="dhmz-box"><div class="dhmz-header"><span class="dhmz-logo">DHMZ</span><span class="dhmz-ts">PMC Split &middot; 2026-07-02 06:20</span></div><div class="dhmz-warn"><div class="dhmz-warn-lbl" style="color:#E87070">⚠️ WARNUNG</div><div class="dhmz-warn-txt">Örtliche Böen von Bora, am Abend auf dem offenen Meer der Nord- und Mitteladria auch Nordwestböen, 35-45 kn, in der Nacht im Velebitkanal Böen von Bora 35-70 kn. Gewitter sind möglich. — Wetterlage: Der flache Trog verlagert sich über die Adria südostwärts.</div></div><div class="dhmz-row"><span class="dhmz-lbl">Nächste 12h</span> Nordwest- und Südwestwinde, 6-16 kn, am Nachmittag im Küstenbereich der Süd- und Mitteladria örtlich Bora, 8-18 kn. Gegen Abend über die Nord- und Mitteladria Nordwestwinde, im Küstenbereich Bora zunehmend auf 12-24 kn, über die Nordadria bis 28. Das Meer 2-3, am Abend auf der Nordadria 3-4. Die Sichtweite 10-20 km. Wechselnd bewölkt, Regen, oder Gewitterschauer möglich, und stärkere Gewitterunwetter.</div><div class="dhmz-row"><span class="dhmz-lbl">Ausblick 24h</span> Mäßige bis frische, über die Mitteladria starke, über die Nordadria steife Nordwestwinde. Über die Mitteladria mäßige bis starke, über die Nordadria steife, im Velebitkanal stürmische Bora. Das Meer schwach bis leicht bewegt, auf der Nord- und Mitteladria mäßig bewegt. Wechselnd bewölkt, Regen, oder Gewitterschauer sind möglich und stärkere Gewitterunwetter.</div></div>
+  <div style="background:rgba(232,123,26,.10);border:1px solid #E87B1A;border-radius:12px;padding:14px;margin-bottom:14px"><div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#E87B1A;margin-bottom:2px">⚠️ Quellen uneinig</div><div style="font-size:.85rem;color:#E2E8F0;line-height:1.5;margin-top:6px">• DHMZ meldet Bora bis 65kn — Modelle nur 5-7kn. Moegliche regionale/zeitliche Differenz. Im Zweifel gilt die amtliche Prognose.</div></div>
+  <div class="dhmz-box"><div class="dhmz-header"><span class="dhmz-logo">DHMZ</span><span class="dhmz-ts">PMC Split &middot; 2026-07-02 12:05</span></div><div class="dhmz-warn"><div class="dhmz-warn-lbl" style="color:#E87070">⚠️ WARNUNG</div><div class="dhmz-warn-txt">Örtliche Böen von Bora, 35-55 kn, im Velebitkanal bis 65 kn, anfangs noch bis 70. Gewitter sind möglich, überwiegend heute. — Wetterlage: Der flache Trog mit der Frontstörung verlagert sich über die Adria weiter südostwärts.</div></div><div class="dhmz-row"><span class="dhmz-lbl">Nächste 12h</span> Bora, 12-24 kn, über die Nordadria bis 28, im Velebitkanal bis 32 kn, am Anfang noch bis 36. Über die Südadria und auf dem offenen Meer der Mitteladria Nordwestwinde, 4-14 kn, über die Mitteladria bis 20. Das Meer 2-3, stellenweise 4. Die Sichtweite 10-20 km. Vorwiegend heiter, bei der stärkeren Bewölkung strichweise Regen und Gewitterschauer möglich.</div><div class="dhmz-row"><span class="dhmz-lbl">Ausblick 24h</span> Mäßige bis frische, über die Mitteladria stellenweise starke, über die Nordadria steife Bora. Auf dem offenen Meer der Mittel- und Südadria schwache bis mäßige, stellenweise frische Nordwestwinde. Das Meer schwach bis leicht bewegt, stellenweise mäßig bewegt. Vorwiegend heiter, bei der stärkeren Bewölkung strichweise Regen und Gewitterschauer möglich.</div></div>
   <div class="status-hero stop">
     <div class="s-icon">🚨</div>
-    <div><div class="verdict verdict-stop">STURM</div><div class="bft-sub">NO-Wind &middot; See 0.3m</div><div class="amp-grund">Bora 70kn — auch Funtana betroffen</div></div>
-    <div class="pct"><div class="pct-row"><div class="pct-num pct-stop">🚫</div><div class="pct-lbl">NICHT AUSLAUFEN</div></div></div>
+    <div class="verdict verdict-stop">STURM</div>
+    <div class="pct"></div>
+    <div class="hero-sub">NO-Wind &middot; See 0.3m</div>
+    <div class="amp-grund">Bora 70kn — auch Funtana betroffen</div>
+    <div class="hero-banner">🚫 NICHT AUSLAUFEN</div>
   </div>
   <div class="instruments">
     <div class="instr"><div class="il">💨 Wind</div><div class="iv">6.1 <span class="iu">kn</span></div><div class="is">NO &middot; Böen 12.7 kn</div></div>
@@ -149,7 +152,7 @@ GROSSER ABSTAND ERBETEN.</div></div></div>
     Daten: ECMWF &middot; GFS &middot; ICON-EU &middot; Open-Meteo Marine<br>
     Kein Ersatz für offizielle Warnungen &mdash;
     <a href="https://meteoalarm.org">Meteoalarm</a> &middot; <a href="https://hhi.hr">HHI NAVTEX</a> &middot; <a href="https://www.meteo.hr">DHMZ</a><br>
-    Letzte Aktualisierung: 02. Jul 2026 &middot; 12:01 Uhr
+    Letzte Aktualisierung: 02. Jul 2026 &middot; 12:21 Uhr
   </footer>
 </div>
 <script>
