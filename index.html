@@ -31,6 +31,8 @@ body{background:var(--deep);color:var(--sail);font-family:'DM Sans',system-ui,sa
 .pct-num{font-size:1.2rem;font-weight:600}
 .pct-go{color:var(--go)}.pct-warn{color:var(--warn)}.pct-stop{color:var(--stop)}
 .pct-lbl{font-size:.65rem;color:var(--muted);letter-spacing:.08em}
+.pct-row{display:flex;align-items:center;gap:8px}
+.pct-row .pct-num{font-size:1.4rem}
 .instruments{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
 .instr{background:rgba(11,54,84,.45);border:1px solid var(--line);border-radius:10px;padding:14px}
 .il{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:6px;font-weight:500}
@@ -100,7 +102,7 @@ footer a{color:var(--muted);text-decoration:none}
 <body><div class="page">
   <div class="masthead">
     <div><h1>Adria<br><span>Segelwetter</span></h1><div class="sub">Funtana &middot; Istrien &middot; Nordadria</div></div>
-    <div><div class="ts">45°10'N 13°37'E<br>02. Jul 2026<br>Akt. 09:02 Uhr</div></div>
+    <div><div class="ts">45°10'N 13°37'E<br>02. Jul 2026<br>Akt. 09:31 Uhr</div></div>
   </div>
   <div class="update-bar">
     <div class="dot-live"></div><span class="label">Nächstes Update</span>
@@ -112,7 +114,7 @@ footer a{color:var(--muted);text-decoration:none}
   <div class="status-hero stop">
     <div class="s-icon">🚨</div>
     <div><div class="verdict verdict-stop">🔴 STURM (Bora 70kn — auch Funtana betroffen)</div><div class="bft-sub">WSW-Wind &middot; See 0.4m</div></div>
-    <div class="pct"><div class="pct-num pct-stop">🚫</div><div class="pct-lbl">NICHT AUSLAUFEN</div></div>
+    <div class="pct"><div class="pct-row"><div class="pct-num pct-stop">🚫</div><div class="pct-lbl">NICHT AUSLAUFEN</div></div></div>
   </div>
   <div class="instruments">
     <div class="instr"><div class="il">💨 Wind</div><div class="iv">3.7 <span class="iu">kn</span></div><div class="is">WSW &middot; Böen 6.8 kn</div></div>
@@ -144,7 +146,7 @@ GROSSER ABSTAND ERBETEN.</div></div><div class="navtex-item"><div class="navtex-
     Daten: ECMWF &middot; GFS &middot; ICON-EU &middot; Open-Meteo Marine<br>
     Kein Ersatz für offizielle Warnungen &mdash;
     <a href="https://meteoalarm.org">Meteoalarm</a> &middot; <a href="https://hhi.hr">HHI NAVTEX</a> &middot; <a href="https://www.meteo.hr">DHMZ</a><br>
-    Letzte Aktualisierung: 02. Jul 2026 &middot; 09:02 Uhr
+    Letzte Aktualisierung: 02. Jul 2026 &middot; 09:31 Uhr
   </footer>
 </div>
 <script>
