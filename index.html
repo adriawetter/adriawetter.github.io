@@ -98,6 +98,12 @@ body{background:var(--deep);color:var(--sail);font-family:'DM Sans',system-ui,sa
 .rev-note{font-size:.72rem;color:var(--muted);font-style:italic;margin-top:6px}
 .hero-fenster{font-size:.85rem;color:var(--sail);margin-top:6px;line-height:1.4}
 .hero-heute{font-size:.8rem;color:#f0a854;margin-top:4px}
+.hb-grid{grid-column:1/-1;width:100%;box-sizing:border-box;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}
+.hb{background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 14px}
+.hb-t{font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--gold);margin-bottom:6px}
+.hb-row{display:grid;grid-template-columns:7.5em 1fr auto;gap:8px;font-size:.88rem;color:var(--sail);padding:3px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.hb-row:last-child{border-bottom:none}.hb-row span{color:#CBD5E1}.hb-row i{color:var(--muted);font-style:normal;font-size:.8rem}
+.hb-note{font-size:.78rem;color:#f0a854;margin-top:6px}
 .ki-box{background:rgba(11,54,84,.3);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:16px;margin-bottom:16px}
 .ki-text{font-family:'DM Serif Display',serif;font-size:.95rem;line-height:1.7;color:#C8D8E8;font-style:italic}
 .dhmz-box{background:rgba(26,74,122,.2);border:1px solid #2A6AAA;border-radius:12px;padding:14px;margin-bottom:14px}
@@ -139,7 +145,7 @@ footer a{color:var(--muted);text-decoration:none}
     <div class="pct">Modellübereinstimmung 80%</div>
     <div class="hero-sub">O-Wind &middot; See 0.1m</div>
     
-    <div class="hero-fenster"><b>Morgen 07–19 Uhr</b>: bis 5 kn um 14:00 &middot; Böen bis 10 kn &middot; Welle bis 0.1 m</div><div class="hero-fenster">🏛 Küstenwarnung Istrien 🟢 · Kvarner 🟢 · Velebit 🟢</div>
+    <div class="hb-grid"><div class="hb"><div class="hb-t">📅 MORGEN 07–19 UHR</div><div class="hb-row"><span>💨 Wind</span><b>bis 5 kn</b><i>um 14:00</i></div><div class="hb-row"><span>💨 Böen</span><b>bis 10 kn</b><i></i></div><div class="hb-row"><span>🌊 Welle</span><b>bis 0.1 m</b><i></i></div></div><div class="hb"><div class="hb-t">🏛 KÜSTENWARNUNG DHMZ</div><div class="hb-row"><span>🟢 Istrien</span><b>keine Warnung</b><i></i></div><div class="hb-row"><span>🟢 Kvarner</span><b>keine Warnung</b><i></i></div><div class="hb-row"><span>🟢 Velebit</span><b>keine Warnung</b><i></i></div></div></div>
     
   </div>
   <div class="instruments">
@@ -149,7 +155,7 @@ footer a{color:var(--muted);text-decoration:none}
     <div class="instr"><div class="il">🌡 Temperatur</div><div class="iv">15.1 <span class="iu">°C</span></div><div class="is">Wasser: 21.7°C</div></div>
   </div>
   <div class="models-box"><div class="ml">Modellvergleich</div><div class="mr"><div class="model-chip"><div class="mn">ECMWF</div><div class="mv">1.8kn O</div></div><div class="model-chip"><div class="mn">GFS</div><div class="mv">3.1kn O</div></div><div class="model-chip"><div class="mn">ICON-EU</div><div class="mv">4.3kn O</div></div></div></div>
-  <div class="sec">Höhenlage</div><div class="hoehen-box"><div class="hoehen-grid"><div class="hoehen-row"><span class="hoehen-lvl">300hPa</span><span>9432m &middot; -43.5&deg;C</span></div><div class="hoehen-row"><span class="hoehen-lvl">500hPa</span><span>5773m &middot; -14.7&deg;C</span></div><div class="hoehen-row"><span class="hoehen-lvl">700hPa</span><span>3149m &middot; 1.4&deg;C</span></div><div class="hoehen-row"><span class="hoehen-lvl">850hPa</span><span>1561m &middot; 9.8&deg;C</span></div></div><div class="hoehen-synop">Höhenrücken. Stabile antizyklonale Lage. 700hPa 3149m → Kein Bora-Risiko.</div><div class="hoehen-synop">📡 Radar: aktuell kein Niederschlag an dieser Position (RainViewer).</div></div>
+  <div class="sec">Höhenlage</div><div class="hoehen-box"><div class="hoehen-grid"><div class="hoehen-row"><span class="hoehen-lvl">300hPa</span><span>9432m &middot; -43.5&deg;C</span></div><div class="hoehen-row"><span class="hoehen-lvl">500hPa</span><span>5773m &middot; -14.7&deg;C</span></div><div class="hoehen-row"><span class="hoehen-lvl">700hPa</span><span>3149m &middot; 1.4&deg;C</span></div><div class="hoehen-row"><span class="hoehen-lvl">850hPa</span><span>1561m &middot; 9.8&deg;C</span></div></div><div class="hoehen-synop">Höhenrücken. Stabile antizyklonale Lage. 700hPa 3149m → Kein Bora-Risiko.</div><div class="hoehen-synop">📡 Radar: aktuell kein Niederschlag an dieser Position (RainViewer).</div><div class="hoehen-synop hoehen-warn">⚠️ Widerspruch: Modell zeigt 3kn, Station Sv. Ivan na pučini - svjetionik (14km) nur 6kn — Diskrepanz 3kn, keine sichere Windaussage.</div></div>
   <div class="sec">Verlauf morgen 07–19 Uhr &middot; stärkstes Modell</div>
   <div class="vl-grid"><div class="vl-col"><div class="fc-time">07:00</div><div class="fc-kn">4</div><div class="fc-unit">kn</div><div class="fc-dir">O</div><div class="fc-wave">Böen 7</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:13%"></div></div></div></div><div class="vl-col"><div class="fc-time">09:00</div><div class="fc-kn">3</div><div class="fc-unit">kn</div><div class="fc-dir">O</div><div class="fc-wave">Böen 7</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:11%"></div></div></div></div><div class="vl-col"><div class="fc-time">11:00</div><div class="fc-kn">2</div><div class="fc-unit">kn</div><div class="fc-dir">WNW</div><div class="fc-wave">Böen 6</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:6%"></div></div></div></div><div class="vl-col"><div class="fc-time">13:00</div><div class="fc-kn">4</div><div class="fc-unit">kn</div><div class="fc-dir">WNW</div><div class="fc-wave">Böen 8</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:13%"></div></div></div></div><div class="vl-col"><div class="fc-time">15:00</div><div class="fc-kn">4</div><div class="fc-unit">kn</div><div class="fc-dir">W</div><div class="fc-wave">Böen 9</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:15%"></div></div></div></div><div class="vl-col"><div class="fc-time">17:00</div><div class="fc-kn">4</div><div class="fc-unit">kn</div><div class="fc-dir">W</div><div class="fc-wave">Böen 10</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:13%"></div></div></div></div><div class="vl-col"><div class="fc-time">19:00</div><div class="fc-kn">2</div><div class="fc-unit">kn</div><div class="fc-dir">ONO</div><div class="fc-wave">Böen 3</div><div class="fc-bar"><div class="fc-bar-track"><div class="fc-bar-fill " style="width:6%"></div></div></div></div></div>
   
@@ -167,7 +173,7 @@ GROSSER ABSTAND ERBETEN.</div></div></div>
     Daten: ECMWF &middot; GFS &middot; ICON-EU &middot; Open-Meteo Marine<br>
     Kein Ersatz für offizielle Warnungen &mdash;
     <a href="https://meteoalarm.org">Meteoalarm</a> &middot; <a href="https://hhi.hr">HHI NAVTEX</a> &middot; <a href="https://www.meteo.hr">DHMZ</a><br>
-    Letzte Aktualisierung: 18. Oct 2026 &middot; 21:00 Uhr
+    Letzte Aktualisierung: 18. Oct 2026 &middot; 21:19 Uhr
   </footer>
 </div>
 <script>
